@@ -1,0 +1,30 @@
+[
+    {
+        "name": "chinese",
+        "pattern": "[cC]hines"
+    },
+    {
+        "name": "emailid",
+        "pattern": "(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$)"
+    },
+    {
+        "name": "freetext",
+        "pattern": "\b\\w+|\\d+$\b"
+    },
+    {
+        "name": "greet",
+        "pattern": "hey[^\\s]*"
+    },
+    {
+        "name": "maxbudget",
+        "pattern": "<[^\\s]*"
+    },
+    {
+        "name": "minbudget",
+        "pattern": ">[^\\s]*"
+    },
+    {
+        "name": "zipcode",
+        "pattern": "[0-9]{5}"
+    }
+]

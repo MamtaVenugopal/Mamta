@@ -1,0 +1,157 @@
+action_factory: null
+action_names:
+- utter_greet
+- utter_goodbye
+- utter_default
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_cuisine
+- utter_ask_budget
+- action_validate_cuisine
+- action_validate_location
+- action_restaurant
+- utter_ask_email_preference
+- utter_ask_emailid
+- action_email
+- utter_emailed_you
+- utter_wrong_budget
+- action_validate_budget
+- action_clear_slots
+- utter_wrong_cuisine
+- utter_wrong_city
+actions:
+- utter_greet
+- utter_goodbye
+- utter_default
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_cuisine
+- utter_ask_budget
+- actions.ActionValidateCuisine
+- actions.ActionValidateLocation
+- actions.ActionSearchRestaurants
+- utter_ask_email_preference
+- utter_ask_emailid
+- actions.ActionSendEmail
+- utter_emailed_you
+- utter_wrong_budget
+- actions.ActionValidateBudget
+- actions.ActionClearSlots
+- utter_wrong_cuisine
+- utter_wrong_city
+config:
+  store_entities_as_slots: true
+entities:
+- location
+- cuisine
+- minbudget
+- maxbudget
+- emailid
+- freetext
+intents:
+- greet
+- affirm
+- deny
+- goodbye
+- thankyou
+- restaurant_search
+- send_email
+slots:
+  cuisine:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  emailid:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  freetext:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  location:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  maxbudget:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  minbudget:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+templates:
+  utter_ask_budget:
+  - buttons:
+    - payload: <300
+      title: Lesser than Rs. 300
+    - payload: 300-700
+      title: Rs. 300 to 700
+    - payload: '>700'
+      title: More than 700
+    text: What's the average budget for two people?
+  utter_ask_cuisine:
+  - buttons:
+    - payload: Chinese
+      title: Chinese
+    - payload: Mexican
+      title: Mexican
+    - payload: Italian
+      title: Italian
+    - payload: American
+      title: American
+    - payload: South Indian
+      title: South Indian
+    - payload: North Indian
+      title: North Indian
+    text: what kind of cuisine would you like?
+  utter_ask_email_preference:
+  - text: Shall I forward you this information in an email?
+  - text: Would you like to send this information in an email?
+  - text: Would you prefer sending this information to your email?
+  utter_ask_emailid:
+  - text: To what email id should I send it to?
+  - text: Please share your email address
+  utter_ask_howcanhelp:
+  - text: how can I help you?
+  utter_ask_location:
+  - text: In what location?
+  - text: what location you are looking for?
+  - text: Sure! tell me the location
+  - text: My pleasure!! where do you want to dine today?
+  utter_default:
+  - text: Hi there!! Welcome. I am the Foodie bot. You can talk to me to search for
+      restaurants in India.
+  - text: Hi!! Welcome. I am the Foodie bot. I can help you find good places to eat
+      in all major cities in India. Tell me your interests.
+  utter_emailed_you:
+  - text: This information has been emailed to you.
+  - text: Sent. Bon Appetit!
+  - text: Sent
+  utter_goodbye:
+  - text: goodbye :(
+  - text: Bye-bye
+  - text: bye! it was nice talking to you
+  - text: bye for now
+  - text: catch you later
+  - text: see ya
+  - text: talk to you later
+  - text: nice talking to you
+  utter_greet:
+  - text: hey there! How may i help you
+  - text: Hi, How can I help you!
+  - text: Hey, How is it going. How May I help you Today
+  utter_invalid_emailid:
+  - text: Please share a valid email
+  - text: Email id given is not valid. Please enter a valid email
+  utter_wrong_budget:
+  - text: We need valid budget details for better results. Can you please specify
+      the budget
+  - text: We are not able to understand the budget. Can you please choose from available
+      options or valid budget
+  utter_wrong_city:
+  - text: We don't operate in that area yet. Can you please specify some other location
+  - text: Sorry, we don’t operate in this city. Can you please specify some other
+      location
+  - text: Please try some other nearby cities
+  - text: Oops! we currently don't service here. Try another city
+  - text: Sorry, didn’t find any such location. Can you please tell again?
+  utter_wrong_cuisine:
+  - text: We don't offer the requested cuisine. Please select from the available options
+  - text: Ohho, we only have the following options - chinese, american, mexican, italian,
+      south indian, north indian. Choose one
